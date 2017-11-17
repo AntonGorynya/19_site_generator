@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="./../../favicon.ico">
+
+    <title>Starter Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./../../css/starter-template.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="./../../index.html">На главную</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+
+    <main role="main" class="container">
+
+      
+        <h3>Числа</h3>
+<p>В самом Питоне есть целые, вещественные, и комплексные числа. В стандартной библиотеке есть ещё рациональные и
+фиксированной точности.</p>
+<p>У целых чисел нет подводных камней: у них нет ограничения по размеру, поддерживают стандартные арифметические действия
+и всякое такое.</p>
+<p>У вещественных есть подвох: они внутри представлены как тип double в С++. Это значит, что хранятся они как два числа:
+мантисса и экспонента. Это удобно, но иногда из-за ошибок округления и накапливаемых погрешностей происходят ужасные вещи.
+Чтобы знать, что и как может сломаться, надо прочитать
+<a href="https://docs.python.org/3.5/tutorial/floatingpoint.html">статью про ограничение вещественных числах в документации</a>
+(<em>мастрид</em>).</p>
+<p>Частный, но важный случай: деньги нельзя хранить как вещественное число, только как целое или с фиксированной точностью.
+Это кажется очевидным, но многие так делают (некоторые даже в бою). Их всех потом увольняют. Едва ли это совпадение.</p>
+<p><a href="https://docs.python.org/3.5/library/stdtypes.html#numeric-types-int-float-complex">Официальная заметка про численные типы</a>
+короткая и понятная.</p>
+<h3>Строки</h3>
+<p>Со строками в третьем Питоне всё просто: они Юникодные.</p>
+<p>Это значит, что всё сделано очень удобно, но чтобы этим всем удобно пользоваться, надо знать, что такое Юникод, кодировки,
+байты, вот это всё. Об этом можно узнать, например, из <a href="https://www.youtube.com/watch?v=sgHbC6udIqc">классного доклада про Юникод в Питоне</a>.</p>
+<p>Ещё строки можно форматировать, причём несколькими способами. Вот один из них:</p>
+<div class="codehilite"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Пётр&#39;</span>
+<span class="n">height</span> <span class="o">=</span> <span class="mf">1.865</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Привет, </span><span class="si">%s</span><span class="s1">! Твой рост – </span><span class="si">%.2f</span><span class="s1"> м.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">height</span><span class="p">))</span>
+<span class="c1"># Привет, Пётр! Твой рост – 1.86 м.</span>
+</pre></div>
+
+
+<p>Заметь, что <code>%s</code> значит "вывести строку как есть", а <code>%.2f</code> значит "вывести вещественное число 
+с точностью до третьего знака". На самом деле, есть целый подъязык этого форматирования. Почитай 
+<a href="https://docs.python.org/3.1/library/string.html#format-specification-mini-language">про него в документации</a>
+и <a href="https://pyformat.info/">более подробную статью</a>.</p>
+<p>И главное: никогда не используй сложение строк для форматирования. Это плохо читается, долго работает и занимает
+много места.</p>
+<h3>Списки</h3>
+<p>Всё необходимое для начала работы со списками, есть в разделе <a href="http://devman.org/encyclopedia/python_basics/python_basics_base_types/">"Основные типы данных"</a>.</p>
+<p>Тут давайте немного поговорим о list comprehension (по-русски они зовутся списковыми выражениями, но я ни разу не слышал,
+чтобы кто-то так говорил).</p>
+<p>Часто бывает надо взять исходный список и сформировать из него новый, применив к каждому элементу исходного
+какое-то преобразование и как-то отфильтровав. Например, так:</p>
+<div class="codehilite"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">new_values</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="o">%</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">new_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+
+<p>В результате в <code>new_values</code> будут только квадраты чётных чисел из исходного списка.</p>
+<p>Эта операция настолько частая, что для неё есть отдельная конструкция – list comprehension. Выглядит она так:</p>
+<div class="codehilite"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">new_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">value</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">values</span> <span class="k">if</span> <span class="n">value</span> <span class="o">%</span> <span class="mi">2</span><span class="p">]</span>
+</pre></div>
+
+
+<p>Это та же конструкция, что и в предыдущем примере, просто записанная очень компактно: посредине тот же цикл,
+слева – что добавлять в новый список, а справа - фильтр. Фильтр может быть необязательным, кстати.</p>
+<h3>Словари</h3>
+<p>Словарь – это отображение одних элементов в другие. Первые называют ключами, вторые – значениями.</p>
+<div class="codehilite"><pre><span></span><span class="n">user_info</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Иван&#39;</span><span class="p">,</span> <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="k">print</span><span class="p">(</span><span class="n">user_info</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>  <span class="c1"># Иван</span>
+</pre></div>
+
+
+<p>Из словаря можно удалять, менять и добавлять в него элементы:</p>
+<div class="codehilite"><pre><span></span><span class="n">user_info</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Иван&#39;</span><span class="p">,</span> <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="n">user_info</span><span class="p">[</span><span class="s1">&#39;middle_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Иванович&#39;</span>
+<span class="n">user_info</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Грирогий&#39;</span>
+<span class="k">del</span> <span class="n">user_info</span><span class="p">[</span><span class="s1">&#39;level&#39;</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">user_info</span><span class="p">)</span>  <span class="c1"># {&#39;middle_name&#39;: &#39;Иванович&#39;, &#39;name&#39;: &#39;Грирогий&#39;}</span>
+</pre></div>
+
+
+<p>Важный момент про словари: они хранят только отображение одних элементов в других, а порядок элементов не хранят.
+В примере выше <code>middle_name</code> был выведен первым, но на это полагаться нельзя.</p>
+<p>Ещё у словарей есть несколько важных методов: <code>keys</code>, <code>values</code> и <code>items</code>. Первый возвращает список только ключей, 
+второй – список только значений, третий – список пар из ключей и значений. Удобно при итерации по словарю:</p>
+<div class="codehilite"><pre><span></span><span class="n">user_info</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Иван&#39;</span><span class="p">,</span> <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">user_info</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">print</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<span class="c1"># name: Иван</span>
+<span class="c1"># level: 2</span>
+</pre></div>
+
+
+<h3>Кортежи</h3>
+<p>Кортеж выглядит как список, но не совсем. Это скорее структура из C++.
+Отличаются от списков тем, что его элементы гетерогенные и тем, что он умеет упаковываться и распаковываться.
+Подробнее, например, <a href="https://docs.python.org/2/tutorial/datastructures.html#tuples-and-sequences">в документации</a>.</p>
+<h3>Множества</h3>
+<p>Множество – это математическое множество. В нём все элементы уникальные, можно считать пересечение,
+проверять на вхождение и выполнять другие операции с множествами. </p>
+<p>Один из частых случаев применения множеств – удаление дублей из списка:</p>
+<div class="codehilite"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">l</span><span class="p">)))</span>  <span class="c1"># [1, 2, 3]</span>
+</pre></div>
+		
+
+    </main><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="./../../js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="./../../js/bootstrap.min.js"></script>
+  </body>
+</html>

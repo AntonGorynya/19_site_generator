@@ -19,89 +19,90 @@
     ],
     "articles": [
         {
-            "source": "0_tutorial/14_google.md",
+            "source": "0_tutorial/14_google.html",
             "title": "Гугл",
             "topic": "tutorial"
         },
         {
-            "source": "0_tutorial/27_devman.md",
+            "source": "0_tutorial/27_devman.html",
             "title": "Девман",
             "topic": "tutorial"
         },
         {
-            "source": "0_tutorial/29_english.md",
+            "source": "0_tutorial/29_english.html",
             "title": "Английский",
             "topic": "tutorial"
         },
         {
-            "source": "0_tutorial/7_codenvy.md",
+            "source": "0_tutorial/7_codenvy.html",
             "title": "Кодэнви",
             "topic": "tutorial"
         },
         {
-            "source": "0_tutorial/8_cli.md",
+            "source": "0_tutorial/8_cli.html",
             "title": "Консоль",
             "topic": "tutorial"
         },
         {
-            "source": "0_tutorial/9_git.md",
+            "source": "0_tutorial/9_git.html",
             "title": "Гит и Гитхаб",
             "topic": "tutorial"
         },
         {
-            "source": "1_python_basics/10_pep8.md",
+            "source": "1_python_basics/10_pep8.html",
             "title": "Стайлгайд",
             "topic": "python_basics"
         },
         {
-            "source": "1_python_basics/18_comments.md",
+            "source": "1_python_basics/18_comments.html",
             "title": "Комментарии",
             "topic": "python_basics"
         },
         {
-            "source": "1_python_basics/1_intro.md",
+            "source": "1_python_basics/1_intro.html",
             "title": "Зачем нужен Питон",
             "topic": "python_basics"
         },
         {
-            "source": "1_python_basics/2_base_types.md",
+            "source": "1_python_basics/2_base_types.html",
             "title": "Основные типы данных",
             "topic": "python_basics"
         },
         {
-            "source": "1_python_basics/3_base_constructions.md",
+            "source": "1_python_basics/3_base_constructions.html",
             "title": "Основные конструкции",
             "topic": "python_basics"
         },
         {
-            "source": "1_python_basics/4_types.md",
+            "source": "1_python_basics/4_types.html",
             "title": "Типы данных",
             "topic": "python_basics"
         },
         {
-            "source": "1_python_basics/5_modules.md",
+            "source": "1_python_basics/5_modules.html",
             "title": "Модули",
             "topic": "python_basics"
         },
         {
-            "source": "1_python_basics/6_tips_and_tricks.md",
+            "source": "1_python_basics/6_tips_and_tricks.html",
             "title": "Полезные приёмы",
             "topic": "python_basics"
         },
         {
-            "source": "4_git/22_git_history.md",
+            "source": "4_git/22_git_history.html",
             "title": "История",
             "topic": "git"
         },
         {
-            "source": "2_html/special &amp; symbol.md",
+            "source": "2_html/special &amp; symbol.html",
             "title": "Специальный символ &amp;",
             "topic": "html"
         },
         {
-            "source": "2_html/html_injection.md",
+            "source": "2_html/html_injection.html",
             "title": "Взлом с помощью </body>",
             "topic": "html"
         }
     ]
 }
+
