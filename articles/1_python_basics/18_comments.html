@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="./../../favicon.ico">
+
+    <title>Starter Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./../../css/starter-template.css rel="stylesheet">
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="./../../index.html">На главную</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+
+    <main role="main" class="container" style="margin-top: 100px;">
+    <div class="starter-template">      
+        <h2>Какие бывают</h2>
+<h3>Обычные комментарии</h3>
+<p>Комментарии – способ прокомментировать код на ходу, на той же строке. </p>
+<pre class="codehilite"><code class="language-python">price = Column(BigInteger)  # рубли * 100</code></pre>
+
+
+<h3>Докстринги</h3>
+<p>Докстринг – строковая переменная, которая идёт сразу за объявлением функции, класса, метода или модуля.
+Она нужна для документирования всей функции: описания входящих параметров, результата, логики, крайних случаев.
+Заключается в тройные двойные кавычки. Вот так:</p>
+<pre class="codehilite"><code class="language-python">def tensorsolve(a, b, axes=None):
+    &quot;&quot;&quot;
+    Solve the tensor equation ``a x = b`` for x.
+    It is assumed that all indices of `x` are summed over in the product,
+    together with the rightmost indices of `a`, as is done in, for example,
+    ``tensordot(a, x, axes=len(b.shape))``.
+    &quot;&quot;&quot;</code></pre>
+
+
+<p>В серьёзных проектах из них часто генерируется документация, поэтому они могут быть большими, по несколько экранов.
+Это касается проектов, у которых есть документация для разработчиков: Django, numpy, sqlalchemy.</p>
+<p>Если проект не подразумевает, что им будут пользоваться другие разработчики, такого быть не должно.
+Длинных докстрингов не должно быть в скрипте ресайза изображений, сайте блога или алгоритме обучения нейронной сети.</p>
+<p>Прямо в докстрингах можно писать короткие тесты, их называют доктесты. Ни разу не видел, чтобы кто-то
+это использовал в боевом проекте.</p>
+<h2>Как не использовать</h2>
+<h3>Дублировать информацию из кода</h3>
+<p>Самая частая ошибка, связанная с комментариями: дублирование информации.
+В таком случае комментарий не несёт дополнительной информации, а просто переводит соседний код
+с Питона на русский/английский. Пример:</p>
+<pre class="codehilite"><code class="language-python"># загружаем данные из файла data.json
+with open('users.json', 'r') as handler:
+    data = json.load(handler)</code></pre>
+
+
+<p>Вот как можно исправить:</p>
+<pre class="codehilite"><code class="language-python">with open('users.json', 'r') as handler:
+    data = json.load(handler)</code></pre>
+
+
+<p>А так – ещё лучше:</p>
+<pre class="codehilite"><code class="language-python">data = load_all_users_from_file()</code></pre>
+
+
+<h3>Не сопровождать комментарии</h3>
+<p>Другая частая ошибка: не менять комментарии при изменении кода. В примере выше мы загружали данные из файла. 
+Через месяц взялись за голову и поселили данные в базе данных. Код стал таким:</p>
+<pre class="codehilite"><code class="language-python"># загружаем данные из файла data.json
+data = db_session.query(User).all()</code></pre>
+
+
+<p>Данные из файла? WAT?</p>
+<h3>Думать, что все поймут</h3>
+<p>Когда программист пишет кусок кода, он глубоко в него погружён: держит в голове все детали, связи и особые случаи.
+В таком состоянии всё поведение кажется понятным, поэтому разработчик может оставить комментарий самому себе.
+Проблема в том, что когда он переключится на другую задачу и забудет про детали, комментарий может взорвать мозг:</p>
+<pre class="codehilite"><code class="language-python">inv(strain_tensor) - rigidity.T  # правый случай</code></pre>
+
+
+<p>Правый, правда? Ну, теперь всё понятно.</p>
+<h3>Шутить</h3>
+<p>Шутки к неидеальному коду смотрятся неуместно. Представь, как чувствует себя разработчик, копающийся в чужом
+коде три часа и находящий новый модуль с заглавным комментарием <code>оставь надежду, всяк сюда входящий</code>.
+Не будь автором этого комментария. Лучше наведи порядок в своём коде.</p>
+<h2>Как использовать</h2>
+<p>Вот хорошие причины использовать комментарии:</p>
+<ul>
+<li><em>объяснить неочевидное поведение</em>: бывает, что нужно объяснить какой-нибудь подводный камень куска кода
+  или объяснить поведение в особом случае; использовать только если ту же информацию в коде поселить нельзя или
+  очень сложно;</li>
+<li><em>оставить напоминание себе или коллеге</em>: речь про комментарии вроде <code>TODO: кешировать ответ ручки</code>
+  или <code>FIXME: учитывать часовой пояс</code>.</li>
+</ul>
+<p>Прежде чем написать комментарий, попробуй поселить его в коде, указав параметр или дав подходящее название переменной.</p>
+<h2>Что изучать</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=-SRUctRR_4s">Доклад Григория Петрова про комментирование исходников</a>. Обязателен к просмотру.</li>
+<li><a href="https://www.python.org/dev/peps/pep-0257/">PEP 257</a>. ПЕП про докстринги.</li>
+<li><a href="https://docs.python.org/3.5/library/doctest.html">doctest</a>. Документация к модулю про доктесты.</li>
+<li><a href="http://stackoverflow.com/questions/184618/">What is the best comment in source code you have ever encountered?</a>. Шутить в коде не стоит, а вот посмеяться с чужих шуток можно. Это ж не нам поддерживать.</li>
+</ul>
+    </div>
+    </main><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->    
+    <script src="./../../js/bootstrap.min.js"></script>
+  </body>
+</html>
