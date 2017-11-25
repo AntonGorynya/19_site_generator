@@ -11,6 +11,7 @@ pip install -r requirements.txt # alternatively try pip3
 ```
 # How to Create Site
 
+Run next command:
 ```bash
 python create_site.py
 ```
