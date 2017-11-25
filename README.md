@@ -1,6 +1,7 @@
 # Encyclopedia
 
 Simple site about python with script that generate this site.
+Site is published at https://antongorynya.github.io/19_site_generator/
 
 # How to Install
 
