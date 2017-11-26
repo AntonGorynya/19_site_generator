@@ -40,7 +40,7 @@
              <h1> {{ topic['title'] }}</h1>
              {% for article in articles %}
                  {% if topic['slug'] == article['topic'] %}
-                     <a class="nav-link" href="articles/{{ article['source'] }}"> {{ article['title'] }} </a>
+                     {% autoescape true %}<a class="nav-link" href= "articles/{{ article['source'] }}" > {{ article['title'] }} </a> {% endautoescape %}
                  {% endif %}
              {% endfor %}
         {% endfor %}

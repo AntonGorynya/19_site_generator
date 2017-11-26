@@ -40,7 +40,7 @@ def make_site():
     context_data.update({'custom_css': './css/starter-template.css'})
     context_data.update({'core_js': './js/bootstrap.min.js'})
     context_data.update({'icon': './favicon.ico'})
-    print(context_data)
+    print(context_data['articles'])
     with open('index.html', 'w', encoding="utf8") as out_file:
         out_file.write(index_template.render(context_data))
     for md_file in get_md_list():
@@ -50,9 +50,11 @@ def make_site():
         with open(html_file, 'r', encoding="utf8") as in_file:
             context_data = {'context': in_file.read()}
             context_data.update({'core_css': './../../css/bootstrap.min.css'})
-            context_data.update({'custom_css': './../../css/starter-template.css'})
+            context_data.\
+                update({'custom_css': './../../css/starter-template.css'})
             context_data.update({'core_js': './../../js/bootstrap.min.js'})
             context_data.update({'icon': './../../favicon.ico'})
+            context_data.update({'index': './../../index.html'})
         with open(html_file, 'w', encoding="utf8") as out_file:
             out_file.write(page_template.render(context_data))
 
